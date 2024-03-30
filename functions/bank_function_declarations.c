@@ -53,7 +53,15 @@ void createAccount()
     // ----------------------------------------
 
     FILE *fileptr;
+
+
     fileptr = fopen("documents\\Banking_Data.csv", "a+");
+
+    if(fileptr == NULL)
+    {
+        system("mkdir documents");
+        fileptr = fopen("documents\\Banking_Data.csv", "a+");
+    }
 
 
     fseek(fileptr, 0, SEEK_END); // set cursor at end
